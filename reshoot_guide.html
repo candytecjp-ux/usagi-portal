@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>撮り直し作業ガイド | うさぎの素材屋さん</title>
+<style>
+  :root{
+    --accent:#8a6bbf;
+    --accent-light:#efe8fb;
+    --accent-dark:#6b4fa0;
+    --text:#2c2c33;
+    --text-muted:#6b6b76;
+    --border:#e4e1ec;
+    --bg:#faf9fc;
+    --card:#ffffff;
+    --step-num-bg:#8a6bbf;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:960px;
+    margin:0 auto;
+    padding:24px 16px 48px;
+  }
+  header{
+    text-align:center;
+    margin-bottom:22px;
+  }
+  header .badge{
+    display:inline-block;
+    font-size:12px;
+    color:var(--accent-dark);
+    background:var(--accent-light);
+    padding:4px 12px;
+    border-radius:999px;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  header h1{
+    font-size:20px;
+    margin:10px 0 2px;
+    font-weight:700;
+  }
+  header p{
+    font-size:13px;
+    color:var(--text-muted);
+    margin:0;
+  }
+  .layout{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    max-width:560px;
+    margin:0 auto;
+  }
+  .steps{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .step{
+    display:flex;
+    gap:14px;
+    position:relative;
+  }
+  .step-rail{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    flex-shrink:0;
+  }
+  .step-num{
+    width:30px;height:30px;
+    border-radius:50%;
+    background:var(--step-num-bg);
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .step-line{
+    width:2px;
+    flex:1;
+    background:var(--border);
+    margin:4px 0;
+  }
+  .step:last-child .step-line{display:none;}
+  .step-body{
+    flex:1;
+    padding-bottom:26px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px 18px;
+  }
+  .step-title{
+    font-size:16.5px;
+    font-weight:700;
+    line-height:1.4;
+    margin:0 0 8px;
+  }
+  .step-desc{
+    font-size:14px;
+    line-height:1.75;
+    color:var(--text);
+    margin:0 0 10px;
+  }
+  .tip{
+    background:var(--accent-light);
+    border-radius:10px;
+    padding:10px 12px;
+    font-size:12.5px;
+    line-height:1.6;
+    color:var(--accent-dark);
+    margin-bottom:2px;
+  }
+  .tip + .tip{margin-top:6px;}
+  .tip b{font-weight:700;}
+  .checklist{
+    list-style:none;
+    padding:0;
+    margin:2px 0 0;
+  }
+  .checklist li{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    padding:6px 0;
+    font-size:13.5px;
+    line-height:1.6;
+  }
+  .checklist input[type=checkbox]{
+    margin-top:3px;
+    width:16px;height:16px;
+    accent-color:var(--accent);
+    flex-shrink:0;
+  }
+  .note-toggle{
+    text-align:center;
+    margin-top:6px;
+  }
+  .note-toggle button{
+    font-family:inherit;
+    background:none;
+    border:none;
+    color:var(--text-muted);
+    font-size:12.5px;
+    font-weight:600;
+    padding:8px 6px;
+    text-decoration:underline;
+    cursor:pointer;
+  }
+  .note-panel{
+    display:none;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px 18px;
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.8;
+  }
+  .note-panel.open{display:block;}
+  .note-panel h3{
+    font-size:13px;
+    margin:0 0 8px;
+    color:var(--accent-dark);
+  }
+  .note-panel ul{margin:0;padding-left:18px;}
+  .note-panel li{margin-bottom:6px;}
+
+  /* wide screens: notes move to a sticky sidebar on the right */
+  @media (min-width:860px){
+    .layout{
+      max-width:960px;
+      flex-direction:row;
+      align-items:flex-start;
+    }
+    .main-col{flex:1;min-width:0;}
+    .side-col{
+      width:280px;
+      flex-shrink:0;
+    }
+    .note-toggle{display:none;}
+    .note-panel{
+      display:block !important;
+      position:sticky;
+      top:24px;
+      margin-top:0;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <span class="badge">うさぎの素材屋さん</span>
+    <h1>撮り直し作業ガイド</h1>
+    <p>初めてでも迷わずできる、その場チェックリスト</p>
+  </header>
+
+  <div class="layout">
+    <div class="main-col">
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="card">
+              <div class="step-title">撮り直し候補から商品を選ぶ</div>
+              <p class="step-desc">ワークスペースの「撮り直し候補」リストから、これから作業する商品を1つ選びます。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="card">
+              <div class="step-title">次回も入荷できる？</div>
+              <p class="step-desc">商品表で該当商品を検索し、リンクを開いて次回も入荷できるか確認します。</p>
+              <div class="tip">品切れ・再入荷予定なしの場合は、ここで作業を中止します（撮り直ししない）。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="card">
+              <div class="step-title">サンプルを準備する</div>
+              <p class="step-desc">撮影用に1セット分の商品サンプルを持ってきます。</p>
+              <div class="tip">1個売り／ビーズ4〜8個入り／個体差がある商品は2セット用意してください。</div>
+              <ul class="checklist">
+                <li><input type="checkbox" id="chk3_0"><label for="chk3_0">撮影用サンプルを用意した（通常1セット、対象商品は2セット）</label></li>
+                <li><input type="checkbox" id="chk3_1"><label for="chk3_1">付箋に商品番号・数量を記載した</label></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="card">
+              <div class="step-title">金額を計算する</div>
+              <p class="step-desc">販売価格を計算します。変更があれば楽天市場とYahoo!ショッピングの価格を修正してください。</p>
+              <div class="tip">税込190円以下になった場合は<b>税込190円（税抜173円）</b>に引き上げ。登録は<b>税抜173円</b>で行います。</div>
+              <div class="tip"><b>楽天：</b>商品一覧の「販売価格（円）」欄を変更し、右上の<b>「更新」</b>ボタンを押す。<br><b>Yahoo!：</b>商品管理＞検索＞対象商品にチェック＞編集＞<b>「通常販売価格（税抜）」</b>を変更。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">5</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="card">
+              <div class="step-title">説明文を生成する</div>
+              <ul class="checklist">
+                <li><input type="checkbox" id="chk5_0"><label for="chk5_0">商品リンクからタイトルをコピーしてチャットGPTに貼り付けた</label></li>
+                <li><input type="checkbox" id="chk5_1"><label for="chk5_1">フォルダの「うさぎ商品説明文」から該当商品の説明文を検索し、コピーして貼り付けた</label></li>
+                <li><input type="checkbox" id="chk5_2"><label for="chk5_2">説明文を生成した</label></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">6</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="card">
+              <div class="step-title">出力をメモに貼り付ける</div>
+              <p class="step-desc">生成された説明文をメモに貼り付けます。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">7</div></div>
+          <div class="step-body">
+            <div class="card">
+              <div class="step-title">画像待ちへ移動する</div>
+              <p class="step-desc">「撮り直し候補」から「画像待ち」に移動します。</p>
+              <div class="tip">商品番号の末尾に<b>「*＞」</b>を付けるのを忘れずに。</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="side-col">
+      <div class="note-toggle">
+        <button id="noteToggleBtn" onclick="toggleNotes()">＋ 商品説明文の共通注意事項を見る</button>
+      </div>
+      <div class="note-panel" id="notePanel">
+        <h3>商品説明文 作成時の共通ルール</h3>
+        <ul>
+          <li>タイトル・キャッチコピーの文字スペースは半角</li>
+          <li>サイズの「mm」表記は半角</li>
+          <li>税込190円以下は税込190円（税抜173円）に引き上げ、登録は税抜価格で行う</li>
+          <li>色を変更した場合はタイトルの色名も修正</li>
+          <li>楽天の説明文は改行に &lt;br&gt; を使用</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleNotes(){
+  const panel = document.getElementById('notePanel');
+  const btn = document.getElementById('noteToggleBtn');
+  panel.classList.toggle('open');
+  btn.textContent = panel.classList.contains('open') ? '－ 注意事項を閉じる' : '＋ 商品説明文の共通注意事項を見る';
+}
+</script>
+</body>
+</html>

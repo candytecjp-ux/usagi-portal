@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>業務ポータル | うさぎの素材屋さん</title>
+<style>
+  :root{
+    --accent:#8a6bbf;
+    --accent-light:#efe8fb;
+    --accent-dark:#6b4fa0;
+    --text:#2c2c33;
+    --text-muted:#6b6b76;
+    --border:#e4e1ec;
+    --bg:#faf9fc;
+    --card:#ffffff;
+    --muted-bg:#f3f2f6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:1000px;
+    margin:0 auto;
+    padding:28px 20px 56px;
+  }
+  header{
+    text-align:center;
+    margin-bottom:22px;
+  }
+  header .badge{
+    display:inline-block;
+    font-size:12px;
+    color:var(--accent-dark);
+    background:var(--accent-light);
+    padding:4px 12px;
+    border-radius:999px;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  header h1{
+    font-size:23px;
+    margin:10px 0 4px;
+    font-weight:700;
+  }
+  header p{
+    font-size:13.5px;
+    color:var(--text-muted);
+    margin:0;
+  }
+
+  .news{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:4px solid var(--accent);
+    border-radius:10px;
+    padding:14px 18px;
+    margin:0 0 32px;
+    font-size:13.5px;
+    line-height:1.8;
+  }
+  .news .news-title{
+    font-weight:700;
+    color:var(--accent-dark);
+    font-size:12.5px;
+    letter-spacing:.03em;
+    margin-bottom:6px;
+  }
+  .news ul{margin:0;padding-left:18px;}
+  .news li{margin-bottom:2px;}
+  .news .date{color:var(--text-muted);margin-right:8px;}
+
+  section{margin-bottom:34px;}
+  .section-title{
+    font-size:15px;
+    font-weight:700;
+    margin:0 0 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .section-title .count{
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--text-muted);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:12px;
+  }
+
+  .tile{
+    display:block;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:16px 16px;
+    text-decoration:none;
+    color:var(--text);
+    transition:border-color .15s, transform .1s;
+  }
+  .tile:hover{border-color:var(--accent);}
+  .tile:active{transform:scale(0.98);}
+  .tile-title{
+    font-size:14.5px;
+    font-weight:700;
+    margin-bottom:4px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .tile-desc{
+    font-size:12.5px;
+    color:var(--text-muted);
+    line-height:1.6;
+  }
+  .tile.pending{
+    background:var(--muted-bg);
+    color:var(--text-muted);
+    cursor:default;
+    pointer-events:none;
+  }
+  .tile.pending .tile-title{color:var(--text-muted);}
+  .tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    padding:2px 8px;
+    border-radius:999px;
+    background:var(--accent-light);
+    color:var(--accent-dark);
+    flex-shrink:0;
+  }
+  .tag.gray{background:#e7e6ea;color:#7a7a83;}
+  .tag.todo{background:#fdeceb;color:#c14b3f;}
+
+  footer{
+    text-align:center;
+    font-size:12px;
+    color:var(--text-muted);
+    margin-top:20px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <span class="badge">うさぎの素材屋さん / Rスリフト</span>
+    <h1>業務ポータル</h1>
+    <p>マニュアル・社内ツール・よく使うリンクをここにまとめています</p>
+  </header>
+
+  <div class="news">
+    <div class="news-title">お知らせ・更新履歴</div>
+    <ul>
+      <li><span class="date">2026-08-05</span>業務ポータルを公開しました</li>
+      <li><span class="date">2026-08-05</span>商品撮り直しガイドを公開しました</li>
+    </ul>
+  </div>
+
+  <section>
+    <div class="section-title">マニュアル <span class="count">manuals</span></div>
+    <div class="grid">
+      <a class="tile" href="reshoot_guide.html">
+        <div class="tile-title">商品撮り直しガイド <span class="tag">公開中</span></div>
+        <div class="tile-desc">撮り直し候補の選定から画像待ちへの移動まで、7ステップで確認できます。</div>
+      </a>
+      <div class="tile pending">
+        <div class="tile-title">商品登録マニュアル <span class="tag todo">準備中</span></div>
+        <div class="tile-desc">撮り直し以外の、新規商品登録の手順書。近日追加予定です。</div>
+      </div>
+      <div class="tile pending">
+        <div class="tile-title">Rスリフト 買取・出品フロー <span class="tag todo">準備中</span></div>
+        <div class="tile-desc">家電・カメラ・ホビー用品の買取から出品までの手順書。近日追加予定です。</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">社内ツール・スクリプト <span class="count">tools</span></div>
+    <div class="grid">
+      <a class="tile" href="https://line-tool-q247.onrender.com" target="_blank" rel="noopener">
+        <div class="tile-title">line-tool <span class="tag">Render</span></div>
+        <div class="tile-desc">Rスリフト・LINE配信ツール統合（Node.js / Express）</div>
+      </a>
+      <div class="tile pending">
+        <div class="tile-title">チャッピー（商品登録アシスタント） <span class="tag todo">リンク未設定</span></div>
+        <div class="tile-desc">説明文生成に使うツール。URLを教えてもらえたらここにリンクします。</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">よく使うショートカット <span class="count">shortcuts</span></div>
+    <div class="grid">
+      <div class="tile pending">
+        <div class="tile-title">商品表 <span class="tag todo">リンク未設定</span></div>
+        <div class="tile-desc">在庫・商品番号を検索するスプレッドシート</div>
+      </div>
+      <div class="tile pending">
+        <div class="tile-title">うさぎ商品説明文フォルダ <span class="tag todo">リンク未設定</span></div>
+        <div class="tile-desc">Google Drive内の商品説明文フォルダ</div>
+      </div>
+      <div class="tile pending">
+        <div class="tile-title">楽天RMS <span class="tag todo">リンク未設定</span></div>
+        <div class="tile-desc">楽天市場の商品管理画面</div>
+      </div>
+      <div class="tile pending">
+        <div class="tile-title">Yahoo!ストアクリエイターPro <span class="tag todo">リンク未設定</span></div>
+        <div class="tile-desc">Yahoo!ショッピングの商品管理画面</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    リンクが未設定の項目は、URLを教えてもらえればすぐに反映します。
+  </footer>
+</div>
+</body>
+</html>
