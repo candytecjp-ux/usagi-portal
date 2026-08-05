@@ -3,21 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>業務ポータル | うさぎの素材屋さん</title>
+<title>業務ポータル | TOYLOOP</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -18 110 78'%3E%3Cpath d='M15 30 C15 12 38 12 45 30 C52 48 75 48 75 30 C75 12 52 12 45 30 C38 48 15 48 15 30 Z' fill='none' stroke='%2323262b' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M52 16 C48 0 50 -10 55 -16' fill='none' stroke='%2323262b' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M66 16 C70 -2 76 -8 82 -12' fill='none' stroke='%2323262b' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
   :root{
-    --accent:#9b7bd4;
-    --accent2:#e8a4c4;
-    --accent-light:#f3edfc;
-    --accent-dark:#6b4fa0;
-    --text:#2c2c33;
-    --text-muted:#7a7a86;
-    --border:#eae7f2;
-    --bg:#faf8fd;
+    --ink:#22242a;
+    --ink2:#3c3f47;
+    --pink:#e0699a;
+    --pink-light:#fdeaf1;
+    --pink-dark:#b83f72;
+    --navy:#25384f;
+    --navy-light:#e7ecf2;
+    --navy-dark:#16212f;
+    --accent:#25384f;
+    --accent2:#e0699a;
+    --accent-light:#eef0f2;
+    --accent-dark:#22242a;
+    --text:#26282e;
+    --text-muted:#7b7d84;
+    --border:#e7e7ea;
+    --bg:#f7f7f8;
     --card:#ffffff;
-    --muted-bg:#f7f6fa;
-    --shadow: 0 1px 2px rgba(80,60,120,.05), 0 8px 20px -12px rgba(80,60,120,.15);
-    --shadow-hover: 0 4px 10px rgba(80,60,120,.08), 0 16px 32px -14px rgba(80,60,120,.22);
+    --muted-bg:#f5f5f6;
+    --shadow: 0 1px 2px rgba(20,20,25,.04), 0 8px 20px -12px rgba(20,20,25,.14);
+    --shadow-hover: 0 4px 10px rgba(20,20,25,.06), 0 18px 32px -14px rgba(20,20,25,.20);
   }
   *{box-sizing:border-box;}
   body{
@@ -38,52 +47,71 @@
     position:relative;
     overflow:hidden;
     border-radius:0 0 28px 28px;
-    background:linear-gradient(160deg, var(--accent-light) 0%, #fdf6f9 55%, var(--bg) 100%);
-    padding:44px 20px 40px;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(224,105,154,.20), transparent 45%),
+      radial-gradient(circle at 90% 100%, rgba(37,56,79,.35), transparent 50%),
+      linear-gradient(160deg, var(--ink) 0%, var(--navy-dark) 100%);
+    padding:48px 20px 38px;
     margin:0 -20px 30px;
     text-align:center;
   }
-  .hero::before, .hero::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    filter:blur(2px);
-    opacity:.55;
-  }
-  .hero::before{
-    width:220px;height:220px;
-    background:radial-gradient(circle at 30% 30%, #d7c3f2, transparent 70%);
-    top:-90px; right:-60px;
-  }
-  .hero::after{
-    width:160px;height:160px;
-    background:radial-gradient(circle at 30% 30%, #f3c9dc, transparent 70%);
-    bottom:-70px; left:-40px;
-  }
   .hero-inner{position:relative; z-index:1;}
-  .badge{
+  .logomark{
+    width:52px;height:36px;
+    color:#f4f2f0;
+    margin:0 auto 6px;
+  }
+  .wordmark{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.28em;
+    color:#f4f2f0;
+    margin:0 0 2px;
+  }
+  .wordmark small{
+    display:block;
+    font-size:9.5px;
+    letter-spacing:.24em;
+    font-weight:600;
+    color:#a9adb6;
+    margin-top:4px;
+  }
+  .hero-divider{
+    width:32px;height:1px;
+    background:rgba(255,255,255,.22);
+    margin:16px auto;
+  }
+  .hero h1{
+    font-size:25px;
+    margin:0 0 14px;
+    font-weight:700;
+    letter-spacing:.01em;
+    color:#ffffff;
+  }
+  .brand-badges{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+  }
+  .brand-pill{
     display:inline-flex;
     align-items:center;
     gap:6px;
-    font-size:12px;
-    color:var(--accent-dark);
-    background:#ffffffcc;
-    border:1px solid #e6dcf7;
-    padding:5px 14px;
-    border-radius:999px;
-    font-weight:600;
-    letter-spacing:.02em;
-  }
-  .badge svg{width:13px;height:13px;}
-  .hero h1{
-    font-size:26px;
-    margin:16px 0 6px;
+    font-size:11.5px;
     font-weight:700;
+    padding:5px 13px;
+    border-radius:999px;
     letter-spacing:.01em;
   }
+  .brand-pill.pink{background:rgba(224,105,154,.18); color:#f4a9c6; border:1px solid rgba(224,105,154,.4);}
+  .brand-pill.navy{background:rgba(255,255,255,.08); color:#c3cbd6; border:1px solid rgba(255,255,255,.22);}
+  .brand-pill i{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;}
   .hero p{
-    font-size:13.5px;
-    color:var(--text-muted);
+    font-size:13px;
+    color:#9a9ea8;
     margin:0;
   }
 
@@ -136,10 +164,10 @@
     flex-shrink:0;
   }
   .section-icon svg{width:15px;height:15px;}
-  .section-icon.c-manual{background:#eee6fb;color:#7c4fc9;}
-  .section-icon.c-tool{background:#e2f0f5;color:#3d8ba8;}
-  .section-icon.c-shortcut{background:#fdeee0;color:#c2803c;}
-  .section-icon.c-voice{background:#fdeaf0;color:#c24b78;}
+  .section-icon.c-manual{background:#eef0f2;color:var(--ink);}
+  .section-icon.c-tool{background:var(--navy-light);color:var(--navy);}
+  .section-icon.c-shortcut{background:var(--pink-light);color:var(--pink-dark);}
+  .section-icon.c-voice{background:var(--pink-light);color:var(--pink-dark);}
   .section-title .count{
     font-size:11px;
     font-weight:600;
@@ -170,7 +198,7 @@
   a.tile:hover{
     box-shadow:var(--shadow-hover);
     transform:translateY(-2px);
-    border-color:#ddd0f2;
+    border-color:#d7d9dd;
   }
   a.tile:active{transform:translateY(0) scale(0.99);}
 
@@ -211,16 +239,16 @@
 
   .tile.pending{
     background:var(--muted-bg);
-    border:1.5px dashed #ddd8e6;
+    border:1.5px dashed #dcdce0;
     box-shadow:none;
     cursor:default;
   }
   .tile.pending .tile-icon{
-    background:#eceaf1;
-    color:#a6a3b1;
+    background:#ececee;
+    color:#a3a4aa;
   }
-  .tile.pending .tile-title{color:#8b8894;}
-  .tile.pending .tile-desc{color:#a19eab;}
+  .tile.pending .tile-title{color:#8b8b91;}
+  .tile.pending .tile-desc{color:#a2a2a8;}
 
   .tag{
     display:inline-flex;
@@ -237,14 +265,24 @@
   }
   .tag.live{background:#e4f5ea;color:#2f8c56;}
   .tag.live::before{content:"";width:6px;height:6px;border-radius:50%;background:#2f8c56;}
-  .tag.todo{background:#f2eef8;color:#8b7ba8;}
+  .tag.todo{background:#eeeef0;color:#86868d;}
 
   footer{
     text-align:center;
     font-size:12px;
     color:var(--text-muted);
     margin-top:24px;
+    line-height:1.9;
   }
+  footer .foot-brand{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:var(--ink);
+    font-weight:700;
+    letter-spacing:.04em;
+  }
+  footer .foot-brand svg{width:16px;height:11px;color:var(--ink);}
 
   /* ---------- ご意見箱 ---------- */
   .voice-box{
@@ -274,11 +312,18 @@
 
   <div class="hero">
     <div class="hero-inner">
-      <span class="badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L15 8 L21 9 L16.5 13 L18 19 L12 16 L6 19 L7.5 13 L3 9 L9 8 Z"/></svg>
-        うさぎの素材屋さん / Rスリフト
-      </span>
+      <svg class="logomark" viewBox="-5 -18 110 78" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 30 C15 12 38 12 45 30 C52 48 75 48 75 30 C75 12 52 12 45 30 C38 48 15 48 15 30 Z"/>
+        <path d="M52 16 C48 0 50 -10 55 -16"/>
+        <path d="M66 16 C70 -2 76 -8 82 -12"/>
+      </svg>
+      <div class="wordmark">TOYLOOP<small>株式会社 TOYLOOP</small></div>
+      <div class="hero-divider"></div>
       <h1>業務ポータル</h1>
+      <div class="brand-badges">
+        <span class="brand-pill pink"><i></i>うさぎの素材屋さん</span>
+        <span class="brand-pill navy"><i></i>Rスリフト</span>
+      </div>
       <p>マニュアル・社内ツール・よく使うリンクをここにまとめています</p>
     </div>
   </div>
@@ -442,7 +487,11 @@
 
   <footer>
     リンクが未設定の項目は、URLを教えてもらえればすぐに反映します。<br>
-    運営: 株式会社TOYLOOP（うさぎの素材屋さん / Rスリフト）
+    <span class="foot-brand">
+      <svg viewBox="-5 -18 110 78" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 30 C15 12 38 12 45 30 C52 48 75 48 75 30 C75 12 52 12 45 30 C38 48 15 48 15 30 Z"/><path d="M52 16 C48 0 50 -10 55 -16"/><path d="M66 16 C70 -2 76 -8 82 -12"/></svg>
+      TOYLOOP
+    </span>
+    （うさぎの素材屋さん / Rスリフト）
   </footer>
 </div>
 </body>
