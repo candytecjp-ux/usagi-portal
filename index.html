@@ -120,6 +120,34 @@
   .brand-pill i{width:4px;height:4px;border-radius:50%;background:currentColor;flex-shrink:0;}
   .hero p{display:none;}
 
+  /* ---------- tabs ---------- */
+  .tabs{
+    display:flex;
+    gap:4px;
+    background:var(--muted-bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:4px;
+    max-width:360px;
+    margin:0 auto 28px;
+  }
+  .tab-btn{
+    flex:1;
+    border:none;
+    background:none;
+    padding:9px 12px;
+    border-radius:9px;
+    font-family:inherit;
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--text-muted);
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease, box-shadow .15s ease;
+  }
+  .tab-btn.active{background:#fff; box-shadow:var(--shadow);}
+  .tab-btn[data-tab="usagi"].active{color:var(--pink-dark);}
+  .tab-btn[data-tab="rsurift"].active{color:var(--navy);}
+
   /* ---------- news ---------- */
   .news{
     display:flex;
@@ -335,6 +363,11 @@
     </div>
   </div>
 
+  <div class="tabs" role="tablist">
+    <button type="button" class="tab-btn active" data-tab="usagi" onclick="setTab('usagi')">うさぎの素材屋さん</button>
+    <button type="button" class="tab-btn" data-tab="rsurift" onclick="setTab('rsurift')">Rスリフト</button>
+  </div>
+
   <div class="news">
     <div class="news-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -360,7 +393,7 @@
       マニュアル <span class="count">Manuals</span>
     </div>
     <div class="grid">
-      <a class="tile" href="reshoot_guide.html">
+      <a class="tile" data-brand="usagi" href="reshoot_guide.html">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
@@ -371,7 +404,7 @@
         <div class="tile-desc">撮り直し候補の選定から画像待ちへの移動まで、7ステップで確認できます。</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <div class="tile pending">
+      <div class="tile pending" data-brand="usagi">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
@@ -381,7 +414,7 @@
         <div class="tile-title">商品登録マニュアル</div>
         <div class="tile-desc">撮り直し以外の、新規商品登録の手順書。近日追加予定です。</div>
       </div>
-      <div class="tile pending">
+      <div class="tile pending" data-brand="rsurift">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
@@ -402,7 +435,7 @@
       社内ツール・スクリプト <span class="count">Tools</span>
     </div>
     <div class="grid">
-      <a class="tile" href="https://line-tool-q247.onrender.com" target="_blank" rel="noopener">
+      <a class="tile" data-brand="rsurift" href="https://line-tool-q247.onrender.com" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
@@ -413,7 +446,7 @@
         <div class="tile-desc">Rスリフト・LINE配信ツール統合（Node.js / Express）</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="tile" href="https://chatgpt.com/" target="_blank" rel="noopener">
+      <a class="tile" data-brand="usagi" href="https://chatgpt.com/" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -424,7 +457,7 @@
         <div class="tile-desc">タイトル・説明文の生成に使用。撮り直しガイドSTEP5でも使用します。</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="tile" href="https://line-tool-q247.onrender.com/shift-calendar.html" target="_blank" rel="noopener">
+      <a class="tile" data-brand="both" href="https://line-tool-q247.onrender.com/shift-calendar.html" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
@@ -435,7 +468,7 @@
         <div class="tile-desc">シフト・出勤予定の確認カレンダー</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="tile" href="https://line-tool-q247.onrender.com/picking" target="_blank" rel="noopener">
+      <a class="tile" data-brand="usagi" href="https://line-tool-q247.onrender.com/picking" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
@@ -446,7 +479,7 @@
         <div class="tile-desc">出荷・梱包時の商品ピッキングを支援</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="tile" href="https://script.google.com/macros/s/AKfycby-Db40OlEORPlrrTTxjrChqCKn7XUcOawp8Fs695a-O7JGqgFO2Sc88LNC5A6Hw4wa/exec" target="_blank" rel="noopener">
+      <a class="tile" data-brand="usagi" href="https://script.google.com/macros/s/AKfycby-Db40OlEORPlrrTTxjrChqCKn7XUcOawp8Fs695a-O7JGqgFO2Sc88LNC5A6Hw4wa/exec" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -468,7 +501,7 @@
       よく使うショートカット <span class="count">Shortcuts</span>
     </div>
     <div class="grid">
-      <a class="tile" href="https://docs.google.com/spreadsheets/d/1_-5W1RpJ0P2WGYQ9UVrmQjvocKCFOzWCD5QgPRGAYu4/edit?gid=1971393756#gid=1971393756" target="_blank" rel="noopener">
+      <a class="tile" data-brand="usagi" href="https://docs.google.com/spreadsheets/d/1_-5W1RpJ0P2WGYQ9UVrmQjvocKCFOzWCD5QgPRGAYu4/edit?gid=1971393756#gid=1971393756" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
@@ -479,7 +512,7 @@
         <div class="tile-desc">撮り直し候補リストなど、日次業務の管理シート</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="tile" href="https://docs.google.com/spreadsheets/d/1q82EyTjPr0UpV2One_OgevBtCzAGkyXHusqNtPv0izU/edit?gid=1635019296#gid=1635019296" target="_blank" rel="noopener">
+      <a class="tile" data-brand="usagi" href="https://docs.google.com/spreadsheets/d/1q82EyTjPr0UpV2One_OgevBtCzAGkyXHusqNtPv0izU/edit?gid=1635019296#gid=1635019296" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
@@ -490,7 +523,7 @@
         <div class="tile-desc">在庫・商品番号を検索するスプレッドシート</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="tile" href="https://docs.google.com/spreadsheets/d/1vZWeLgvPlogdCXedyew1fcAd7BjezqE6DFktEFtQlu8/edit?gid=1623188786#gid=1623188786" target="_blank" rel="noopener">
+      <a class="tile" data-brand="usagi" href="https://docs.google.com/spreadsheets/d/1vZWeLgvPlogdCXedyew1fcAd7BjezqE6DFktEFtQlu8/edit?gid=1623188786#gid=1623188786" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
@@ -501,7 +534,7 @@
         <div class="tile-desc">入荷予定・入荷実績の管理シート</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <div class="tile pending">
+      <div class="tile pending" data-brand="usagi">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
@@ -511,7 +544,7 @@
         <div class="tile-title">うさぎ商品説明文フォルダ</div>
         <div class="tile-desc">Google Drive内の商品説明文フォルダ</div>
       </div>
-      <a class="tile" href="https://mainmenu.rms.rakuten.co.jp/" target="_blank" rel="noopener">
+      <a class="tile" data-brand="usagi" href="https://mainmenu.rms.rakuten.co.jp/" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -522,7 +555,7 @@
         <div class="tile-desc">楽天市場の商品管理画面</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="tile" href="https://business.yahoo.co.jp/" target="_blank" rel="noopener">
+      <a class="tile" data-brand="usagi" href="https://business.yahoo.co.jp/" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -533,7 +566,7 @@
         <div class="tile-desc">Yahoo!ショッピングの商品管理画面</div>
         <span class="tile-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="tile" href="https://ecm.mqm.co.jp/Login.aspx" target="_blank" rel="noopener">
+      <a class="tile" data-brand="usagi" href="https://ecm.mqm.co.jp/Login.aspx" target="_blank" rel="noopener">
         <div class="tile-top">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -569,5 +602,25 @@
     （うさぎの素材屋さん / Rスリフト）
   </footer>
 </div>
+<script>
+function setTab(tab){
+  document.querySelectorAll('.tab-btn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.tab === tab);
+  });
+  document.querySelectorAll('[data-brand]').forEach(function(el){
+    var b = el.dataset.brand;
+    el.style.display = (b === tab || b === 'both') ? '' : 'none';
+  });
+  document.querySelectorAll('section').forEach(function(sec){
+    var grid = sec.querySelector('.grid');
+    if(!grid) return;
+    var anyVisible = Array.prototype.some.call(grid.children, function(c){
+      return c.style.display !== 'none';
+    });
+    sec.style.display = anyVisible ? '' : 'none';
+  });
+}
+setTab('usagi');
+</script>
 </body>
 </html>
