@@ -139,6 +139,7 @@
   .section-icon.c-manual{background:#eee6fb;color:#7c4fc9;}
   .section-icon.c-tool{background:#e2f0f5;color:#3d8ba8;}
   .section-icon.c-shortcut{background:#fdeee0;color:#c2803c;}
+  .section-icon.c-voice{background:#fdeaf0;color:#c24b78;}
   .section-title .count{
     font-size:11px;
     font-weight:600;
@@ -244,6 +245,28 @@
     color:var(--text-muted);
     margin-top:24px;
   }
+
+  /* ---------- ご意見箱 ---------- */
+  .voice-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px 18px 6px;
+    box-shadow:var(--shadow);
+  }
+  .voice-box p{
+    font-size:12.5px;
+    color:var(--text-muted);
+    margin:0 0 14px;
+    line-height:1.7;
+  }
+  .voice-box iframe{
+    width:100%;
+    height:640px;
+    border:none;
+    border-radius:10px;
+    display:block;
+  }
 </style>
 </head>
 <body>
@@ -267,6 +290,7 @@
     <div class="news-body">
       <div class="news-title">お知らせ・更新履歴</div>
       <ul>
+        <li><span class="date">2026-08-06</span>ご意見箱を設置しました。要望・改善案はこちらからどうぞ</li>
         <li><span class="date">2026-08-05</span>業務ポータルを公開しました</li>
         <li><span class="date">2026-08-05</span>商品撮り直しガイドを公開しました</li>
       </ul>
@@ -395,6 +419,19 @@
         <div class="tile-title">Yahoo!ストアクリエイターPro</div>
         <div class="tile-desc">Yahoo!ショッピングの商品管理画面</div>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <div class="section-icon c-voice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      ご意見箱 <span class="count">Voice</span>
+    </div>
+    <div class="voice-box">
+      <p>業務改善・システムへのご要望、気づいた点など、お気軽にお寄せください。いただいた内容は1日2回確認し、対応を検討します（匿名でもOKです）。</p>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSenSu5titafsyYdjKRW9HSbzYIdG-Sx0nJoAF1Nf_CQzNTqHg/viewform?embedded=true">読み込んでいます…</iframe>
     </div>
   </section>
 
