@@ -33,6 +33,10 @@
   header h1{font-size:20px;margin:10px 0 2px;font-weight:700;}
   header p{font-size:13px;color:var(--text-muted);margin:0;}
   .open-tool{display:block;max-width:560px;margin:0 auto 22px;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:13px 16px;border-radius:12px;}
+  .first-time{max-width:560px;margin:-12px auto 22px;text-align:center;font-size:13px;color:var(--text-muted);}
+  .first-time a{color:var(--accent-dark);font-weight:700;}
+  .dl{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:10px 14px;border-radius:10px;margin:4px 0 2px;}
+  .dl small{font-weight:400;font-size:11.5px;opacity:.9;}
   .open-tool small{display:block;font-weight:400;font-size:11.5px;opacity:.9;margin-top:2px;word-break:break-all;}
   .layout{display:flex;flex-direction:column;gap:20px;max-width:560px;margin:0 auto;}
   .steps{display:flex;flex-direction:column;}
@@ -94,6 +98,7 @@
   </header>
 
   <a class="open-tool" href="https://line-tool-q247.onrender.com/label" target="_blank" rel="noopener">ラベル印刷ツールを開く<small>https://line-tool-q247.onrender.com/label</small></a>
+  <p class="first-time">はじめて使うPCは、先に <a href="#setup">PCの準備（最初の1回だけ）</a> をしてください。</p>
 
   <div class="layout">
     <div class="main-col">
@@ -178,6 +183,46 @@
         </table></div>
       </div>
 
+
+      <div class="block" id="setup">
+        <h2 class="sec">PCの準備（ラベルプリンターをつないだPCで、最初の1回だけ）</h2>
+        <p class="step-desc">10分ほどで終わります。終わるとデスクトップに「ラベル印刷」ができます。</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-rail"><div class="step-num">1</div><div class="step-line"></div></div>
+            <div class="step-body"><div class="card">
+              <div class="step-title">印刷用のファイルをダウンロードする</div>
+              <a class="dl" href="downloads/label-print.zip" download>label-print.zip をダウンロード <small>約10KB</small></a>
+              <p class="step-desc" style="margin-top:10px">ダウンロードフォルダの <b>label-print.zip</b> を右クリック →「すべて展開」。出てきた <code>label-print</code> フォルダを <code>C:\</code> の直下に移します（<code>C:\label-print</code> になればOK）。</p>
+              <div class="tip">移すときに「管理者の権限が必要」と出たら「続行」を押してください。</div>
+            </div></div>
+          </div>
+          <div class="step">
+            <div class="step-rail"><div class="step-num">2</div><div class="step-line"></div></div>
+            <div class="step-body"><div class="card">
+              <div class="step-title">b-PAC（ブラザーの無料部品）を入れる</div>
+              <p class="step-desc"><a href="https://support.brother.com/g/s/es/dev/en/bpac/download/index.html" target="_blank" rel="noopener">b-PACダウンロードページ</a>を開き、黒い帯の「b-PACクライアントコンポーネントのみ」→ <b>3.4.017 の「64ビット版」</b>を選びます。同意してダウンロードし、<code>bcciw34017_64.msi</code> をダブルクリックします。</p>
+              <div class="tip">バーが一瞬出てすぐ消えれば、インストール完了です（完了画面は出ません）。</div>
+              <div class="tip">「開発者向けb-PAC SDK」は不要です。青い「PCが保護されました」が出たら「詳細情報」→「実行」。</div>
+            </div></div>
+          </div>
+          <div class="step">
+            <div class="step-rail"><div class="step-num">3</div><div class="step-line"></div></div>
+            <div class="step-body"><div class="card">
+              <div class="step-title">デスクトップに「ラベル印刷」を作る</div>
+              <p class="step-desc"><code>C:\label-print\setup.bat</code> をダブルクリック →「Done.」と出たら何かキーを押して閉じます。デスクトップに「ラベル印刷」ができていればOKです。</p>
+            </div></div>
+          </div>
+          <div class="step">
+            <div class="step-rail"><div class="step-num">4</div><div class="step-line"></div></div>
+            <div class="step-body"><div class="card">
+              <div class="step-title">試し印刷する</div>
+              <p class="step-desc">ラベルプリンター（QL-600／QL-800）の電源を入れてUSBでつなぎます。上の使い方で型番を1つ保存し、「ラベル印刷」→<b>［いいえ］</b>で1枚だけ印刷します。</p>
+              <div class="tip">文字化けがなく、2行とも切れずに入っていれば準備完了です。</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
       <div class="block">
         <h2 class="sec">困ったとき</h2>
         <div class="tbl"><table>
@@ -186,7 +231,8 @@
             <tr><td>「商品マスタを読めていません」「一時的に応答しませんでした」</td><td>少し待って「最新にする」。続くときは管理者へ</td></tr>
             <tr><td>「印刷するファイルが見つかりません」</td><td>画面で「印刷ファイルを保存」してから、もう一度ダブルクリック</td></tr>
             <tr><td>「QL のプリンターが見つかりません」</td><td>プリンターの電源とUSBを確認して、もう一度</td></tr>
-            <tr><td>「b-PAC クライアントが入っていません」</td><td>PCの準備の2をやり直す（右の「PCの準備」）</td></tr>
+            <tr><td>「b-PAC クライアントが入っていません」</td><td><a href="#setup">PCの準備</a>の2をやり直す</td></tr>
+            <tr><td>デスクトップに「ラベル印刷」がない</td><td><code>C:\label-print\setup.bat</code> をもう一度ダブルクリック</td></tr>
             <tr><td>「○分前に保存したものです」</td><td>新しく作ったなら、画面で保存し直す</td></tr>
             <tr><td>型番が赤で「商品マスタにありません」</td><td>打ちまちがい・大文字小文字を確認。未登録ならマスタに登録して「最新にする」</td></tr>
           </tbody>
@@ -197,20 +243,13 @@
 
     <div class="side-col">
       <div class="note-toggle">
-        <button id="noteToggleBtn" onclick="toggleNotes()">＋ PCの準備（最初の1回だけ）を見る</button>
+        <button id="noteToggleBtn" onclick="toggleNotes()">＋ 必要なものを見る</button>
       </div>
       <div class="note-panel" id="notePanel">
-        <h3>PCの準備（プリンターをつなぐPCで、最初の1回だけ）</h3>
-        <ol>
-          <li>Googleドライブの「うさぎラベル印刷_PC用.zip」をダウンロード →「すべて展開」→ 中の <code>label-print</code> を <code>C:\</code> の直下へ（<code>C:\label-print</code>）</li>
-          <li><a href="https://support.brother.com/g/s/es/dev/en/bpac/download/index.html" target="_blank" rel="noopener">b-PACダウンロードページ</a>の「b-PACクライアントコンポーネントのみ」から <b>3.4 の64ビット版</b> を入れる（バーが一瞬出て消えれば完了）</li>
-          <li><code>C:\label-print\setup.bat</code> をダブルクリック → デスクトップに「ラベル印刷」ができる</li>
-          <li>QLプリンターの電源を入れ、USBでつなぐ</li>
-          <li>型番を1つ保存して「ラベル印刷」→［いいえ］で試し印刷。文字化けがなく、2行とも切れずに入っていればOK</li>
-        </ol>
         <h3>必要なもの</h3>
         <ul>
-          <li>Windows PC ＋ Brother QL-600／QL-800</li>
+          <li>Windows PC ＋ Brother QL-600／QL-800（USBでつなぐ）</li>
+          <li>P-touch Editor（入っているもの）</li>
           <li>62mm幅の長尺テープ</li>
           <li>型番の確認だけなら、どのPC・スマホでも可（ログイン不要）</li>
         </ul>
@@ -224,7 +263,7 @@ function toggleNotes(){
   const panel = document.getElementById('notePanel');
   const btn = document.getElementById('noteToggleBtn');
   panel.classList.toggle('open');
-  btn.textContent = panel.classList.contains('open') ? '－ PCの準備を閉じる' : '＋ PCの準備（最初の1回だけ）を見る';
+  btn.textContent = panel.classList.contains('open') ? '－ 閉じる' : '＋ 必要なものを見る';
 }
 </script>
 </body>
