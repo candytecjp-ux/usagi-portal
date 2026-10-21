@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ラベル印刷ガイド | うさぎの素材屋さん</title>
+<style>
+  :root{
+    --accent:#8a6bbf;
+    --accent-light:#efe8fb;
+    --accent-dark:#6b4fa0;
+    --text:#2c2c33;
+    --text-muted:#6b6b76;
+    --border:#e4e1ec;
+    --bg:#faf9fc;
+    --card:#ffffff;
+    --step-num-bg:#8a6bbf;
+    --ok:#2f7d55; --ok-light:#e3f2ea;
+    --warn:#9a6a00; --warn-light:#fbf0d6;
+    --ng:#b3362f; --ng-light:#fbe5e2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:960px;margin:0 auto;padding:24px 16px 48px;}
+  header{text-align:center;margin-bottom:22px;}
+  header .badge{display:inline-block;font-size:12px;color:var(--accent-dark);background:var(--accent-light);padding:4px 12px;border-radius:999px;font-weight:600;letter-spacing:.02em;}
+  header h1{font-size:20px;margin:10px 0 2px;font-weight:700;}
+  header p{font-size:13px;color:var(--text-muted);margin:0;}
+  .open-tool{display:block;max-width:560px;margin:0 auto 22px;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:13px 16px;border-radius:12px;}
+  .open-tool small{display:block;font-weight:400;font-size:11.5px;opacity:.9;margin-top:2px;word-break:break-all;}
+  .layout{display:flex;flex-direction:column;gap:20px;max-width:560px;margin:0 auto;}
+  .steps{display:flex;flex-direction:column;}
+  .step{display:flex;gap:14px;}
+  .step-rail{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+  .step-num{width:30px;height:30px;border-radius:50%;background:var(--step-num-bg);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .step-line{width:2px;flex:1;background:var(--border);margin:4px 0;}
+  .step:last-child .step-line{display:none;}
+  .step-body{flex:1;min-width:0;padding-bottom:26px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+  .step-title{font-size:16.5px;font-weight:700;line-height:1.4;margin:0 0 8px;}
+  .step-desc{font-size:14px;line-height:1.75;margin:0 0 10px;}
+  .step-desc:last-child{margin-bottom:0;}
+  .tip{background:var(--accent-light);border-radius:10px;padding:10px 12px;font-size:12.5px;line-height:1.6;color:var(--accent-dark);}
+  .tip + .tip{margin-top:6px;}
+  .tip b{font-weight:700;}
+  .label-sample{width:220px;max-width:100%;margin:6px auto 4px;background:#fff;border:1px solid #d9d1cf;border-radius:3px;padding:10px 8px;text-align:center;font-family:Meiryo,"Hiragino Sans",sans-serif;font-size:15px;line-height:1.35;color:#111;box-shadow:0 1px 0 #d9d1cf;}
+  .caption{font-size:11.5px;color:var(--text-muted);text-align:center;margin:0 0 8px;}
+  h2.sec{font-size:15px;margin:8px 0 10px;padding-left:10px;border-left:4px solid var(--accent);}
+  .block{margin-bottom:22px;}
+  .legend{display:grid;gap:8px;}
+  .legend div{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.6;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;}
+  .chip{flex-shrink:0;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;}
+  .chip.ok{background:var(--ok-light);color:var(--ok);}
+  .chip.warn{background:var(--warn-light);color:var(--warn);}
+  .chip.ng{background:var(--ng-light);color:var(--ng);}
+  .tbl{overflow-x:auto;background:var(--card);border:1px solid var(--border);border-radius:12px;}
+  table{border-collapse:collapse;width:100%;font-size:13px;}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55;}
+  th{background:var(--accent-light);color:var(--accent-dark);font-weight:700;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  td.ng{color:var(--ng);font-weight:600;}
+  ul.plain{margin:0;padding-left:18px;font-size:13.5px;line-height:1.75;}
+  .note-toggle{text-align:center;margin-top:6px;}
+  .note-toggle button{font-family:inherit;background:none;border:none;color:var(--text-muted);font-size:12.5px;font-weight:600;padding:8px 6px;text-decoration:underline;cursor:pointer;}
+  .note-panel{display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin-top:10px;font-size:13px;line-height:1.8;}
+  .note-panel.open{display:block;}
+  .note-panel h3{font-size:13px;margin:0 0 8px;color:var(--accent-dark);}
+  .note-panel h3 + ol, .note-panel h3 + ul{margin-top:0;}
+  .note-panel ol,.note-panel ul{margin:0 0 12px;padding-left:18px;}
+  .note-panel li{margin-bottom:6px;}
+  .note-panel a{color:var(--accent-dark);}
+  code{font-family:Consolas,monospace;font-size:12px;background:#f3f1f7;padding:1px 5px;border-radius:4px;word-break:break-all;}
+  @media (min-width:860px){
+    .layout{max-width:960px;flex-direction:row;align-items:flex-start;}
+    .main-col{flex:1;min-width:0;}
+    .side-col{width:300px;flex-shrink:0;}
+    .note-toggle{display:none;}
+    .note-panel{display:block !important;position:sticky;top:24px;margin-top:0;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <span class="badge">うさぎの素材屋さん</span>
+    <h1>ラベル印刷ガイド</h1>
+    <p>型番を貼るだけで、商品ラベルを各2枚・1枚ずつカットで印刷</p>
+  </header>
+
+  <a class="open-tool" href="https://line-tool-q247.onrender.com/label" target="_blank" rel="noopener">ラベル印刷ツールを開く<small>https://line-tool-q247.onrender.com/label</small></a>
+
+  <div class="layout">
+    <div class="main-col">
+
+      <div class="label-sample">【cu578】<br>4個</div>
+      <p class="caption">できあがるラベル（62mm幅・長さ約17.6mm）</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-rail"><div class="step-num">1</div><div class="step-line"></div></div>
+          <div class="step-body"><div class="card">
+            <div class="step-title">ツールを開く</div>
+            <p class="step-desc">上のボタンからラベル印刷ツールを開きます。右上に「商品マスタ ○○件」と緑の点が出ていれば準備OKです。</p>
+          </div></div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">2</div><div class="step-line"></div></div>
+          <div class="step-body"><div class="card">
+            <div class="step-title">型番を貼って「確認する」</div>
+            <p class="step-desc">1行に1つずつ貼ります。スプレッドシートからそのままコピーして大丈夫です。</p>
+            <div class="tip">Ctrl＋Enter でも確認できます。同じ型番を2回貼っても1回分にまとめられます。</div>
+          </div></div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">3</div><div class="step-line"></div></div>
+          <div class="step-body"><div class="card">
+            <div class="step-title">ラベルの見本を確認する</div>
+            <p class="step-desc">緑と黄色の行だけが印刷されます。<b>赤い行は印刷されません。</b>色の意味は下の「画面の見方」を見てください。</p>
+          </div></div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">4</div><div class="step-line"></div></div>
+          <div class="step-body"><div class="card">
+            <div class="step-title">「印刷ファイルを保存」を押す</div>
+            <p class="step-desc">枚数（標準は2枚）を確かめて押すと、ダウンロードフォルダに印刷用ファイルが保存されます。</p>
+          </div></div>
+        </div>
+
+        <div class="step">
+          <div class="step-rail"><div class="step-num">5</div><div class="step-line"></div></div>
+          <div class="step-body"><div class="card">
+            <div class="step-title">デスクトップの「ラベル印刷」をダブルクリック</div>
+            <p class="step-desc">プリンターをつないだPCで行います。出てきた一覧を見て選びます。</p>
+            <div class="tip"><b>［はい］</b>全部印刷　<b>［いいえ］</b>1枚だけ試し印刷　<b>［キャンセル］</b>やめる</div>
+            <div class="tip">印刷が終わったファイルは名前が <b>.printed.csv</b> に変わり、二度印刷されません。</div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="sec">画面の見方</h2>
+        <div class="legend">
+          <div><span class="chip ok">緑</span><span>そのまま印刷できます。</span></div>
+          <div><span class="chip warn">黄色</span><span>印刷できますが、確かめてほしい点があります（マスタに同じ型番が2行ある、手で印字を入れた、など）。下の小さな文字を読んでください。</span></div>
+          <div><span class="chip ng">赤</span><span>印刷しません。未登録、数量・単位が読めない、マスタに内容の違う行が複数ある、のどれかです。</span></div>
+        </div>
+        <ul class="plain" style="margin-top:10px">
+          <li><b>赤を直すとき</b>：商品マスタを直してから、右上の「最新にする」を押す</li>
+          <li><b>急ぐとき</b>：赤い行の「印字を手で入れる」に「10個」のように入れて「これで印刷」（マスタは変わりません）</li>
+          <li><b>大文字・小文字違い</b>：「近い型番：bei471」のようにヒントが出ます。正しい型番で貼り直してください</li>
+          <li><b>外したい型番</b>：行の右端の ×</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h2 class="sec">印字のルール</h2>
+        <p class="step-desc">商品マスタのG列（数量）と、H列にある単位だけを印字します。「検品」「量り」などの作業指示は印字しません。</p>
+        <div class="tbl"><table>
+          <thead><tr><th>G列</th><th>H列</th><th>印字（2行目）</th></tr></thead>
+          <tbody>
+            <tr><td>4</td><td>個 検品 袋詰め</td><td>4個</td></tr>
+            <tr><td>88</td><td>個 計量-グラム記載</td><td>88個</td></tr>
+            <tr><td>20.1</td><td>グラム 量り</td><td>20.1グラム</td></tr>
+            <tr><td>10</td><td>（空欄）</td><td>10（個かグラム）</td></tr>
+            <tr><td>10.1g</td><td>個 計量-グラム記載</td><td class="ng">赤：単位が合わない</td></tr>
+            <tr><td>4p 300</td><td>個 検品 袋詰め</td><td class="ng">赤：数字だけではない</td></tr>
+            <tr><td>（空欄）</td><td>—</td><td class="ng">赤：数量がない</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="block">
+        <h2 class="sec">困ったとき</h2>
+        <div class="tbl"><table>
+          <thead><tr><th>出たもの</th><th>すること</th></tr></thead>
+          <tbody>
+            <tr><td>「商品マスタを読めていません」「一時的に応答しませんでした」</td><td>少し待って「最新にする」。続くときは管理者へ</td></tr>
+            <tr><td>「印刷するファイルが見つかりません」</td><td>画面で「印刷ファイルを保存」してから、もう一度ダブルクリック</td></tr>
+            <tr><td>「QL のプリンターが見つかりません」</td><td>プリンターの電源とUSBを確認して、もう一度</td></tr>
+            <tr><td>「b-PAC クライアントが入っていません」</td><td>PCの準備の2をやり直す（右の「PCの準備」）</td></tr>
+            <tr><td>「○分前に保存したものです」</td><td>新しく作ったなら、画面で保存し直す</td></tr>
+            <tr><td>型番が赤で「商品マスタにありません」</td><td>打ちまちがい・大文字小文字を確認。未登録ならマスタに登録して「最新にする」</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+    </div>
+
+    <div class="side-col">
+      <div class="note-toggle">
+        <button id="noteToggleBtn" onclick="toggleNotes()">＋ PCの準備（最初の1回だけ）を見る</button>
+      </div>
+      <div class="note-panel" id="notePanel">
+        <h3>PCの準備（プリンターをつなぐPCで、最初の1回だけ）</h3>
+        <ol>
+          <li>Googleドライブの「うさぎラベル印刷_PC用.zip」をダウンロード →「すべて展開」→ 中の <code>label-print</code> を <code>C:\</code> の直下へ（<code>C:\label-print</code>）</li>
+          <li><a href="https://support.brother.com/g/s/es/dev/en/bpac/download/index.html" target="_blank" rel="noopener">b-PACダウンロードページ</a>の「b-PACクライアントコンポーネントのみ」から <b>3.4 の64ビット版</b> を入れる（バーが一瞬出て消えれば完了）</li>
+          <li><code>C:\label-print\setup.bat</code> をダブルクリック → デスクトップに「ラベル印刷」ができる</li>
+          <li>QLプリンターの電源を入れ、USBでつなぐ</li>
+          <li>型番を1つ保存して「ラベル印刷」→［いいえ］で試し印刷。文字化けがなく、2行とも切れずに入っていればOK</li>
+        </ol>
+        <h3>必要なもの</h3>
+        <ul>
+          <li>Windows PC ＋ Brother QL-600／QL-800</li>
+          <li>62mm幅の長尺テープ</li>
+          <li>型番の確認だけなら、どのPC・スマホでも可（ログイン不要）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleNotes(){
+  const panel = document.getElementById('notePanel');
+  const btn = document.getElementById('noteToggleBtn');
+  panel.classList.toggle('open');
+  btn.textContent = panel.classList.contains('open') ? '－ PCの準備を閉じる' : '＋ PCの準備（最初の1回だけ）を見る';
+}
+</script>
+</body>
+</html>
