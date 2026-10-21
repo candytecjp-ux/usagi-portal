@@ -135,18 +135,10 @@
         <div class="step">
           <div class="step-rail"><div class="step-num">4</div><div class="step-line"></div></div>
           <div class="step-body"><div class="card">
-            <div class="step-title">「印刷ファイルを保存」を押す</div>
-            <p class="step-desc">枚数（標準は2枚）を確かめて押すと、ダウンロードフォルダに印刷用ファイルが保存されます。</p>
-          </div></div>
-        </div>
-
-        <div class="step">
-          <div class="step-rail"><div class="step-num">5</div><div class="step-line"></div></div>
-          <div class="step-body"><div class="card">
-            <div class="step-title">デスクトップの「ラベル印刷」をダブルクリック</div>
-            <p class="step-desc">プリンターをつないだPCで行います。出てきた一覧を見て選びます。</p>
-            <div class="tip"><b>［はい］</b>全部印刷　<b>［いいえ］</b>1枚だけ試し印刷　<b>［キャンセル］</b>やめる</div>
-            <div class="tip">印刷が終わったファイルは名前が <b>.printed.csv</b> に変わり、二度印刷されません。</div>
+            <div class="step-title">「○件・○枚を印刷する」を押す</div>
+            <p class="step-desc">枚数（標準は2枚）を確かめて押すと、その場でラベルプリンターから出てきます。1枚ごとにカットされます。</p>
+            <div class="tip">心配なときは、先に<b>「1枚だけ試し印刷」</b>。</div>
+            <div class="tip">ボタンは<b>1回だけ</b>押してください（2回押すと2回分出ます）。終わると「○枚を印刷しました」と出ます。</div>
           </div></div>
         </div>
       </div>
@@ -186,39 +178,32 @@
 
       <div class="block" id="setup">
         <h2 class="sec">PCの準備（ラベルプリンターをつないだPCで、最初の1回だけ）</h2>
-        <p class="step-desc">10分ほどで終わります。終わるとデスクトップに「ラベル印刷」ができます。</p>
+        <p class="step-desc">5分ほどで終わります。入れるのは2つだけです（Chromeを使います）。</p>
         <div class="steps">
           <div class="step">
             <div class="step-rail"><div class="step-num">1</div><div class="step-line"></div></div>
             <div class="step-body"><div class="card">
-              <div class="step-title">印刷用のファイルをダウンロードする</div>
-              <a class="dl" href="downloads/label-print.zip" download>label-print.zip をダウンロード <small>約10KB</small></a>
-              <p class="step-desc" style="margin-top:10px">ダウンロードフォルダの <b>label-print.zip</b> を右クリック →「すべて展開」。出てきた <code>label-print</code> フォルダを <code>C:\</code> の直下に移します（<code>C:\label-print</code> になればOK）。</p>
-              <div class="tip">移すときに「管理者の権限が必要」と出たら「続行」を押してください。</div>
-            </div></div>
-          </div>
-          <div class="step">
-            <div class="step-rail"><div class="step-num">2</div><div class="step-line"></div></div>
-            <div class="step-body"><div class="card">
               <div class="step-title">b-PAC（ブラザーの無料部品）を入れる</div>
-              <p class="step-desc"><a href="https://support.brother.com/g/s/es/dev/en/bpac/download/index.html" target="_blank" rel="noopener">b-PACダウンロードページ</a>を開き、黒い帯の「b-PACクライアントコンポーネントのみ」→ <b>3.4.017 の「64ビット版」</b>を選びます。同意してダウンロードし、<code>bcciw34017_64.msi</code> をダブルクリックします。</p>
+              <a class="dl" href="https://support.brother.com/g/s/es/dev/en/bpac/download/index.html" target="_blank" rel="noopener">b-PACダウンロードページを開く</a>
+              <p class="step-desc" style="margin-top:10px">黒い帯の「b-PACクライアントコンポーネントのみ」→ <b>3.4.017 の「64ビット版」</b>を選びます。同意してダウンロードし、<code>bcciw34017_64.msi</code> をダブルクリックします。</p>
               <div class="tip">バーが一瞬出てすぐ消えれば、インストール完了です（完了画面は出ません）。</div>
               <div class="tip">「開発者向けb-PAC SDK」は不要です。青い「PCが保護されました」が出たら「詳細情報」→「実行」。</div>
             </div></div>
           </div>
           <div class="step">
-            <div class="step-rail"><div class="step-num">3</div><div class="step-line"></div></div>
+            <div class="step-rail"><div class="step-num">2</div><div class="step-line"></div></div>
             <div class="step-body"><div class="card">
-              <div class="step-title">デスクトップに「ラベル印刷」を作る</div>
-              <p class="step-desc"><code>C:\label-print\setup.bat</code> をダブルクリック →「Done.」と出たら何かキーを押して閉じます。デスクトップに「ラベル印刷」ができていればOKです。</p>
+              <div class="step-title">Chromeに拡張機能を入れる</div>
+              <a class="dl" href="https://chromewebstore.google.com/detail/ilpghlfadkjifilabejhhijpfphfcfhb" target="_blank" rel="noopener">Brother b-PAC Extension を開く</a>
+              <p class="step-desc" style="margin-top:10px">Chromeで開いて「Chromeに追加」→「拡張機能を追加」を押します。</p>
             </div></div>
           </div>
           <div class="step">
-            <div class="step-rail"><div class="step-num">4</div><div class="step-line"></div></div>
+            <div class="step-rail"><div class="step-num">3</div><div class="step-line"></div></div>
             <div class="step-body"><div class="card">
               <div class="step-title">試し印刷する</div>
-              <p class="step-desc">ラベルプリンター（QL-600／QL-800）の電源を入れてUSBでつなぎます。上の使い方で型番を1つ保存し、「ラベル印刷」→<b>［いいえ］</b>で1枚だけ印刷します。</p>
-              <div class="tip">文字化けがなく、2行とも切れずに入っていれば準備完了です。</div>
+              <p class="step-desc">ラベルプリンター（QL-600／QL-800）の電源を入れてUSBでつなぎます。ラベル印刷ツールを開き（開いていたら再読み込み）、型番を1つ貼って「確認する」→<b>「1枚だけ試し印刷」</b>。</p>
+              <div class="tip">文字化けがなく、2行とも切れずに入り、1枚で切れていれば準備完了です。</div>
             </div></div>
           </div>
         </div>
@@ -228,13 +213,13 @@
         <div class="tbl"><table>
           <thead><tr><th>出たもの</th><th>すること</th></tr></thead>
           <tbody>
+            <tr><td>「このPCではまだ直接印刷できません」「拡張機能（b-PAC）が見つかりません」</td><td><a href="#setup">PCの準備</a>の2を行い、画面を再読み込み。Chrome右上のパズルのマークで拡張機能がオンか確認</td></tr>
+            <tr><td>「ラベルのテンプレートを開けませんでした」</td><td><a href="#setup">PCの準備</a>の1（b-PAC 64ビット版）を行う</td></tr>
+            <tr><td>「Brother QL のプリンターが見つかりません」</td><td>プリンターの電源とUSBを確認して、もう一度</td></tr>
+            <tr><td>「印刷できませんでした（エラー番号…）」</td><td>ロール紙・フタを確認して、もう一度。出た枚数を見て二重印刷に注意</td></tr>
             <tr><td>「商品マスタを読めていません」「一時的に応答しませんでした」</td><td>少し待って「最新にする」。続くときは管理者へ</td></tr>
-            <tr><td>「印刷するファイルが見つかりません」</td><td>画面で「印刷ファイルを保存」してから、もう一度ダブルクリック</td></tr>
-            <tr><td>「QL のプリンターが見つかりません」</td><td>プリンターの電源とUSBを確認して、もう一度</td></tr>
-            <tr><td>「b-PAC クライアントが入っていません」</td><td><a href="#setup">PCの準備</a>の2をやり直す</td></tr>
-            <tr><td>デスクトップに「ラベル印刷」がない</td><td><code>C:\label-print\setup.bat</code> をもう一度ダブルクリック</td></tr>
-            <tr><td>「○分前に保存したものです」</td><td>新しく作ったなら、画面で保存し直す</td></tr>
             <tr><td>型番が赤で「商品マスタにありません」</td><td>打ちまちがい・大文字小文字を確認。未登録ならマスタに登録して「最新にする」</td></tr>
+            <tr><td>どうしても画面から印刷できない</td><td>管理者へ（予備の印刷方法があります）</td></tr>
           </tbody>
         </table></div>
       </div>
@@ -248,8 +233,8 @@
       <div class="note-panel" id="notePanel">
         <h3>必要なもの</h3>
         <ul>
-          <li>Windows PC ＋ Brother QL-600／QL-800（USBでつなぐ）</li>
-          <li>P-touch Editor（入っているもの）</li>
+          <li>Windows PC ＋ Google Chrome</li>
+          <li>Brother QL-600／QL-800（USBでつなぐ）</li>
           <li>62mm幅の長尺テープ</li>
           <li>型番の確認だけなら、どのPC・スマホでも可（ログイン不要）</li>
         </ul>
